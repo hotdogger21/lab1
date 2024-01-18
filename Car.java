@@ -66,6 +66,10 @@ abstract class Car implements Movable{
     }
 
     // movement saker
+
+    public Point2D getPos(){
+        return this.position;
+    }
     @Override
     public void move() {
         if (direction == 1){
@@ -78,7 +82,7 @@ abstract class Car implements Movable{
             this.position.x += currentSpeed;
         }
         if (direction ==4){
-            this.position.y -= currentSpeed;
+            this.position.x -= currentSpeed;
         }
     }
 

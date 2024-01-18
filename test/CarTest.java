@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class CarTest {
 
-    Car car1;
-    Car car2;
+    Saab95 car1;
+    Volvo240 car2;
 
     @Before
     public void init(){
@@ -55,8 +55,11 @@ public class CarTest {
         Assert.assertFalse(car1.currentSpeed > 0);
     }
 
+    /*
+    dessa metoder overridas av subclasser och bör inte användas enbart av en "car" (tror jag)
     @Test
     public void testSpeedFactor() {
+
     }
 
     @Test
@@ -66,16 +69,34 @@ public class CarTest {
     @Test
     public void testDecrementSpeed() {
     }
+     */
 
     @Test
     public void testMove() {
+        car1.startEngine();
+        car1.move();
+        car1.turnLeft();
+        car1.move();
+
+        Assert.assertTrue(car1.getPos().getY() > 0 && car1.getPos().getX() > 0);
     }
 
     @Test
     public void testTurnLeft() {
+        car1.startEngine();
+        car1.turnLeft();
+        car1.move();
+
+        Assert.assertTrue(car1.getPos().getY() <= 0 && car1.getPos().getX() > 0);
     }
 
     @Test
     public void testTurnRight() {
+        car1.startEngine();
+        car1.turnRight();
+        car1.move();
+        car1.move();
+
+        Assert.assertTrue(car1.getPos().getY() <= 0 && car1.getPos().getX() < 0);
     }
 }
