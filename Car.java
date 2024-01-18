@@ -1,10 +1,9 @@
 import java.awt.*;
 
 public class Car {
-    private boolean turboOn;
     private final int nrDoors; // Number of doors on the car
-    private final double enginePower; // Engine power of the car
-    private double currentSpeed; // The current speed of the car
+    protected final double enginePower; // Engine power of the car
+    protected double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private final String modelName; // The car model name
 
@@ -13,6 +12,7 @@ public class Car {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        currentSpeed = 0;
         stopEngine();
     }
 
@@ -42,26 +42,12 @@ public class Car {
     public void stopEngine(){
         currentSpeed = 0;
     }
-
-    public void setTurboOn(){
-        turboOn = true;
-    }
-
-    public void setTurboOff(){
-        turboOn = false;
-    }
-
     public double speedFactor(){
-        double turbo = 1;
-        if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+        return enginePower * 0.01;
     }
-
     public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
     public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
 }
