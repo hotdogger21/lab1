@@ -1,23 +1,21 @@
 import java.awt.*;
 
-public class Saab95 extends Car{
+public class Car {
+    private boolean turboOn;
+    private final int nrDoors; // Number of doors on the car
+    private final double enginePower; // Engine power of the car
+    private double currentSpeed; // The current speed of the car
+    private Color color; // Color of the car
+    private final String modelName; // The car model name
 
-    public boolean turboOn;
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
-    
-    public Saab95(){
-        nrDoors = 2;
-        color = Color.red;
-        enginePower = 125;
-	    turboOn = false;
-        modelName = "Saab95";
+    public Car(int nrDoor, double enginePower, Color color, String modelName){
+        this.nrDoors = nrDoor;
+        this.enginePower = enginePower;
+        this.color = color;
+        this.modelName = modelName;
         stopEngine();
     }
-    
+
     public int getNrDoors(){
         return nrDoors;
     }
@@ -34,25 +32,25 @@ public class Saab95 extends Car{
     }
 
     public void setColor(Color clr){
-	    color = clr;
+        color = clr;
     }
 
     public void startEngine(){
-	    currentSpeed = 0.1;
+        currentSpeed = 0.1;
     }
 
     public void stopEngine(){
-	    currentSpeed = 0;
+        currentSpeed = 0;
     }
 
     public void setTurboOn(){
-	    turboOn = true;
+        turboOn = true;
     }
 
     public void setTurboOff(){
-	    turboOn = false;
+        turboOn = false;
     }
-    
+
     public double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
@@ -65,15 +63,5 @@ public class Saab95 extends Car{
 
     public void decrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-    }
-    
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
     }
 }
