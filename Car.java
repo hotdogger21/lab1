@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Car {
+public class Car{
     private final int nrDoors; // Number of doors on the car
     protected final double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
@@ -46,8 +46,11 @@ public class Car {
         return enginePower * 0.01;
     }
     public void incrementSpeed(double amount){
+        currentSpeed += amount;
     }
 
     public void decrementSpeed(double amount){
+        currentSpeed -= amount;
     }
+
 }
