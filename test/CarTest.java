@@ -66,9 +66,6 @@ public class CarTest {
     public void testIncrementSpeed() {
     }
 
-    @Test
-    public void testDecrementSpeed() {
-    }
      */
 
     @Test
@@ -98,5 +95,19 @@ public class CarTest {
         car1.move();
 
         Assert.assertTrue(car1.getPos().getY() <= 0 && car1.getPos().getX() < 0);
+    }
+
+    @Test
+    public void testGas() {
+        car1.setTurboOn();
+        for (int i = 0; i <101 ; i++) {
+            car1.gas(12);
+        }
+        car1.gas(1);
+        Assert.assertFalse(car1.currentSpeed > car1.enginePower);
+    }
+
+    @Test
+    public void testBrake() {
     }
 }

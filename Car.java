@@ -65,6 +65,25 @@ abstract class Car implements Movable{
         currentSpeed -= amount;
     }
 
+    public void gas(double amount){
+        if (amount < 0){
+            // nothing
+        }
+        else {
+            incrementSpeed(Math.min(1, amount));
+            currentSpeed = Math.min(enginePower, currentSpeed);
+        }
+    }
+    public void brake(double amount){
+        if (amount < 0){
+            // nothing
+        }
+        else {
+            decrementSpeed(Math.min(1, amount));
+            currentSpeed = Math.max(0, currentSpeed);
+        }
+    }
+
     // movement saker
 
     public Point2D getPos(){
@@ -81,7 +100,7 @@ abstract class Car implements Movable{
         if (direction == 2){
             this.position.x += currentSpeed;
         }
-        if (direction ==4){
+        if (direction == 4){
             this.position.x -= currentSpeed;
         }
     }
