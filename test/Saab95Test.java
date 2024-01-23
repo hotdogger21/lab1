@@ -24,29 +24,21 @@ public class Saab95Test {
     }
 
     @Test
-    public void testSpeedFactor() {
+    public void testSpeedFactorSaab() {
         Assert.assertEquals(1.25, car.speedFactor(), 1e-15);
     }
 
     @Test
-    public void testIncrementSpeed() {
+    public void testIncrementSpeedSaab() {
         car.startEngine();
         car.incrementSpeed(1);
         Assert.assertTrue(car.getCurrentSpeed() > 0.1);
     }
 
     @Test
-    public void testDecrementSpeed() {
+    public void testDecrementSpeedSaab() {
         car.startEngine();
         car.decrementSpeed(1);
         Assert.assertTrue(car.getCurrentSpeed() < 0.1);
-    }
-
-    @Test
-    public void testGas() {
-    }
-
-    @Test
-    public void testBrake() {
     }
 }

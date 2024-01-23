@@ -16,7 +16,7 @@ public class CarTest {
         car2 = new Volvo240();
     }
 
-
+    //car tester
     @Test
     public void testGetNrDoors() {
         Assert.assertEquals(2, car1.getNrDoors());
@@ -55,18 +55,21 @@ public class CarTest {
         Assert.assertFalse(car1.currentSpeed > 0);
     }
 
-    /*
-    dessa metoder overridas av subclasser och bör inte användas enbart av en "car" (tror jag)
+
     @Test
     public void testSpeedFactor() {
-
+        //med saab (turbo on), speedfactor blir 125 * 0.01 * 1.3 = 1.625
+        car1.setTurboOn();
+        Assert.assertEquals(1.625, car1.speedFactor(), 15e-15);
     }
 
     @Test
     public void testIncrementSpeed() {
     }
 
-     */
+    @Test
+    public void testDecrementSpeed() {
+    }
 
     @Test
     public void testMove() {
@@ -99,9 +102,10 @@ public class CarTest {
 
     @Test
     public void testGas() {
+        // testar om farten av en sab inte överstiger sin egna enginepower
         car1.setTurboOn();
         for (int i = 0; i <101 ; i++) {
-            car1.gas(12);
+            car1.gas(1);
         }
         car1.gas(1);
         Assert.assertFalse(car1.currentSpeed > car1.enginePower);
@@ -109,5 +113,11 @@ public class CarTest {
 
     @Test
     public void testBrake() {
+        // bromsar 100 gånger och bör
+        car2.currentSpeed = car2.enginePower;
+        for (int i = 0; i <101 ; i++) {
+            car2.brake(1);
+        }
+        Assert.assertEquals(0,car2.currentSpeed,15e-15 );
     }
 }

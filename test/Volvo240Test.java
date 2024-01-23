@@ -19,17 +19,15 @@ public class Volvo240Test {
 
     @Test
     public void testIncrementSpeed() {
+        car.startEngine();
+        car.incrementSpeed(1);
+        Assert.assertTrue(car.getCurrentSpeed() > 0.1);
     }
 
     @Test
     public void testDecrementSpeed() {
-    }
-
-    @Test
-    public void testGas() {
-    }
-
-    @Test
-    public void testBrake() {
+        car.startEngine();
+        car.decrementSpeed(1);
+        Assert.assertTrue(car.getCurrentSpeed() < 0.1);
     }
 }

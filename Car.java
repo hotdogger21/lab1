@@ -10,7 +10,7 @@ abstract class Car implements Movable{
 
     //movement saker
     private int direction;
-    private Point2D.Double position;
+    private final Point2D.Double position;
 
 
     public Car(int nrDoor, double enginePower, Color color, String modelName){
@@ -67,7 +67,7 @@ abstract class Car implements Movable{
 
     public void gas(double amount){
         if (amount < 0){
-            // nothing
+            //do nothing
         }
         else {
             incrementSpeed(Math.min(1, amount));
@@ -76,7 +76,7 @@ abstract class Car implements Movable{
     }
     public void brake(double amount){
         if (amount < 0){
-            // nothing
+            //do nothing
         }
         else {
             decrementSpeed(Math.min(1, amount));
