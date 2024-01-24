@@ -113,7 +113,7 @@ public class CarTest {
 
     @Test
     public void testBrake() {
-        // bromsar 100 gånger och bör
+        // bromsar 100 gånger och bör gå ner till 0 och inte under
         car2.currentSpeed = car2.enginePower;
         for (int i = 0; i <101 ; i++) {
             car2.brake(1);

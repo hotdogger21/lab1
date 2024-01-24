@@ -9,8 +9,8 @@ abstract class Car implements Movable{
     private final String modelName; // The car model name
 
     //movement saker
-    private int direction;
-    private final Point2D.Double position;
+    protected int direction;
+    protected final Point2D.Double position;
 
 
     public Car(int nrDoor, double enginePower, Color color, String modelName){
@@ -58,11 +58,11 @@ abstract class Car implements Movable{
     }
 
     public void incrementSpeed(double amount){
-        currentSpeed += amount;
+        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
     public void decrementSpeed(double amount){
-        currentSpeed -= amount;
+        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
 
     public void gas(double amount){
