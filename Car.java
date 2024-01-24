@@ -58,16 +58,16 @@ abstract class Car implements Movable{
     }
 
     public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
 
     public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
     public void gas(double amount){
         if (amount < 0){
-            //do nothing
+            throw new RuntimeException("no negative amounts!!!");
         }
         else {
             incrementSpeed(Math.min(1, amount));
@@ -76,7 +76,7 @@ abstract class Car implements Movable{
     }
     public void brake(double amount){
         if (amount < 0){
-            //do nothing
+            throw new RuntimeException("no negative amounts!!!");
         }
         else {
             decrementSpeed(Math.min(1, amount));

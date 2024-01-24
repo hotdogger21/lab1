@@ -19,7 +19,6 @@ public class Volvo240Test {
 
     @Test
     public void testIncrementSpeed() {
-        car.startEngine();
         car.incrementSpeed(1);
         Assert.assertTrue(car.getCurrentSpeed() > 0.1);
     }

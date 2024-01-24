@@ -24,15 +24,23 @@ public class transport extends Car{
     }
 
     public void loadCar(Car a){
-        carStack.push(a);
+        if (rampOpen){
+            carStack.push(a);
+        }
+    }
+
+    public void unloadCar(){
+        if (rampOpen && !carStack.isEmpty()){
+            carStack.pop();
+        }
     }
 
     public void gas(double amount){
         if (amount < 0){
-            //do nothing
+            throw new RuntimeException("no negative amounts!!!");
         }
         else if (rampOpen = true) {
-            // do nothing
+            throw new RuntimeException("no driving when the ramp is lowered");
         }
         else {
             incrementSpeed(Math.min(1, amount));

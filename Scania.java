@@ -31,10 +31,10 @@ public class Scania extends Car{
     //gas metod som kollar rampen innan farten ökar
     public void gas(double amount){
         if (amount < 0){
-            //do nothing
+            throw new RuntimeException("no negative amounts!!!");
         }
         else if (platformangle > 0) {
-            // do nothing
+            throw new RuntimeException("no driving when the platform is raised!");
         }
         else {
             incrementSpeed(Math.min(1, amount));
