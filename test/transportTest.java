@@ -37,6 +37,15 @@ public class transportTest {
         Assert.assertFalse(supercar.carStack.isEmpty());
     }
 
+    //test om bil inte ligger nära transporten då händer inget om man försöker lasta den
+    @Test
+    public void loadCar2() {
+        supercar.openRamp();
+        car1.position.x = 100;
+        supercar.loadCar(car1);
+        Assert.assertTrue(supercar.carStack.isEmpty());
+    }
+
     @Test
     public void unloadCar() {
         supercar.openRamp();
@@ -45,7 +54,7 @@ public class transportTest {
         Assert.assertTrue(supercar.carStack.isEmpty());
     }
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void gas() {
         supercar.openRamp();
         supercar.gas(1);

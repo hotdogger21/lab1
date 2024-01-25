@@ -30,10 +30,10 @@ public class ScaniaTest {
 
     }
 
-    @Test
+    //testa gas med platform nere/öppen
+    @Test (expected = RuntimeException.class)
     public void gas() {
         car.raisePlatform(1);
         car.gas(1);
-        Assert.assertFalse(car.currentSpeed > 0);
     }
 }

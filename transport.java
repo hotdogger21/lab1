@@ -1,13 +1,13 @@
 import java.awt.*;
 import java.util.Stack;
 
-public class transport extends Car{
+public class transport extends Truck{
 
     Stack<Car> carStack;
     Boolean rampOpen;
 
     public transport(){
-        super(2, 90, Color.green, "car transporter");
+        super(2, 90, Color.green, "car transporter", true);
         carStack = new Stack<>();
         rampOpen = false;
     }
@@ -24,30 +24,18 @@ public class transport extends Car{
     }
 
     public void loadCar(Car a){
-        if (rampOpen){
+        if (rampOpen && a.position.distance(this.position) <= 5){
             carStack.push(a);
             a.position.x = this.position.x;
             a.position.y = this.position.y;
         }
     }
 
-    public void unloadCar(){
-        if (rampOpen && !carStack.isEmpty()){
-            carStack.pop();
+    public Car unloadCar(){
+        if (!rampOpen || carStack.isEmpty()){
+            throw new RuntimeException("transport is either empty or ramp is closed!!!");
         }
-    }
-
-    public void gas(double amount){
-        if (amount < 0){
-            throw new RuntimeException("no negative amounts!!!");
-        }
-        else if (rampOpen) {
-            throw new RuntimeException("no driving when the ramp is lowered");
-        }
-        else {
-            incrementSpeed(Math.min(1, amount));
-            currentSpeed = Math.min(enginePower, currentSpeed);
-        }
+        else return carStack.pop();
     }
 
     @Override
@@ -64,12 +52,15 @@ public class transport extends Car{
         if (direction == 4){
             this.position.x -= currentSpeed;
         }
+
         if (!carStack.isEmpty()){
             for (Car a : carStack){
                 a.position.x = this.position.x;
                 a.position.y = this.position.y;
             }
         }
+
+
     }
 
 
