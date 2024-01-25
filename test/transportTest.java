@@ -53,5 +53,18 @@ public class transportTest {
 
     @Test
     public void move() {
+        supercar.openRamp();
+        supercar.loadCar(car1);
+        supercar.closeRamp();
+        supercar.gas(1);
+        supercar.move();
+        supercar.move();
+        supercar.stopEngine();
+        supercar.openRamp();
+        supercar.unloadCar();
+        supercar.closeRamp();
+        supercar.gas(1);
+        supercar.move();
+
     }
 }

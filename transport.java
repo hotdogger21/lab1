@@ -26,6 +26,8 @@ public class transport extends Car{
     public void loadCar(Car a){
         if (rampOpen){
             carStack.push(a);
+            a.position.x = this.position.x;
+            a.position.y = this.position.y;
         }
     }
 
@@ -39,7 +41,7 @@ public class transport extends Car{
         if (amount < 0){
             throw new RuntimeException("no negative amounts!!!");
         }
-        else if (rampOpen = true) {
+        else if (rampOpen) {
             throw new RuntimeException("no driving when the ramp is lowered");
         }
         else {
