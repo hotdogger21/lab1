@@ -1,14 +1,15 @@
 import java.awt.*;
-import java.util.Stack;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 public class transport extends Truck{
 
-    Stack<Car> carStack;
+    Deque<Car> carStack;
     Boolean rampOpen;
 
     public transport(){
         super(2, 90, Color.green, "car transporter", true);
-        carStack = new Stack<>();
+        carStack = new ArrayDeque<>();
         rampOpen = false;
     }
 

@@ -15,17 +15,17 @@ public class ScaniaTest {
 
     @Test
     public void raisePlatformTest() {
-        car.raisePlatform(70);
-        car.raisePlatform(1);
+        car.openRamp();
+        car.openRamp();
         Assert.assertFalse(car.platformangle > 70);
 
     }
 
     @Test
     public void lowerPlatform() {
-        car.raisePlatform(1);
-        car.lowerPlatform(1);
-        car.lowerPlatform(1);
+        car.openRamp();
+        car.closeRamp();
+        car.closeRamp();
         Assert.assertFalse(car.platformangle < 0);
 
     }
@@ -33,7 +33,7 @@ public class ScaniaTest {
     //testa gas med platform nere/öppen
     @Test (expected = RuntimeException.class)
     public void gas() {
-        car.raisePlatform(1);
+        car.openRamp();
         car.gas(1);
     }
 }

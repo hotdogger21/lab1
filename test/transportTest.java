@@ -2,19 +2,20 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class transportTest {
 
     transport supercar;
     Saab95 car1;
     Volvo240 car2;
 
+    workshop<Volvo240> test1;
+
     @Before
     public void init(){
         supercar = new transport();
         car1 = new Saab95();
         car2 = new Volvo240();
+        test1 = new workshop<>();
     }
 
     @Test
@@ -74,6 +75,7 @@ public class transportTest {
         supercar.closeRamp();
         supercar.gas(1);
         supercar.move();
+
 
     }
 }
