@@ -13,6 +13,7 @@ public class ScaniaTest {
     }
 
     @Test
+    //höj rampen med 100 grader (bör inte överstiga 70)
     public void raisePlatformTest() {
         for (int i = 0; i < 100; i++) {
             car.openRamp();

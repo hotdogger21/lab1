@@ -12,6 +12,7 @@ abstract class Truck extends Car{
         this.rampOpen = false;
     }
 
+    @Override
     public void gas(double amount){
         if (amount < 0){
             throw new RuntimeException("no negative amounts!!!");

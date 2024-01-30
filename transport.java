@@ -5,7 +5,6 @@ import java.util.ArrayDeque;
 public class transport extends Truck{
 
     Deque<Car> carStack;
-    Boolean rampOpen;
 
     public transport(){
         super(2, 90, Color.green, "car transporter", true);
@@ -17,18 +16,17 @@ public class transport extends Truck{
         if (currentSpeed > 0){
             throw new RuntimeException("transporter must be still before lowering ramp");
         }
-        else rampOpen = true;
+        else this.rampOpen = true;
     }
 
     public void closeRamp(){
-        rampOpen = false;
+        this.rampOpen = false;
     }
 
     public void loadCar(Car a){
         if (rampOpen && a.position.distance(this.position) <= 5){
             carStack.push(a);
-            a.position.x = this.position.x;
-            a.position.y = this.position.y;
+            a.position = this.position;
         }
     }
 
@@ -52,13 +50,6 @@ public class transport extends Truck{
         }
         if (direction == 4){
             this.position.x -= currentSpeed;
-        }
-
-        if (!carStack.isEmpty()){
-            for (Car a : carStack){
-                a.position.x = this.position.x;
-                a.position.y = this.position.y;
-            }
         }
 
 

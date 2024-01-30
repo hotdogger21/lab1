@@ -10,7 +10,7 @@ abstract class Car implements Movable{
 
     //movement saker
     protected int direction;
-    protected final Point2D.Double position;
+    protected Point2D.Double position;
 
 
     public Car(int nrDoor, double enginePower, Color color, String modelName){
