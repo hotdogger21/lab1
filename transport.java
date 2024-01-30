@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.Deque;
 import java.util.ArrayDeque;
 
@@ -34,7 +35,9 @@ public class transport extends Truck{
         if (!rampOpen || carStack.isEmpty()){
             throw new RuntimeException("transport is either empty or ramp is closed!!!");
         }
-        else return carStack.pop();
+        Car car = carStack.pop();
+        car.position = new Point2D.Double(this.position.x, this.position.y);
+        return car;
     }
 
     @Override
