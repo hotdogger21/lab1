@@ -52,6 +52,15 @@ public class transportTest {
         Assert.assertTrue(supercar.carStack.isEmpty());
     }
 
+    @Test
+    public void unloadCar2() {
+        supercar.openRamp();
+        supercar.loadCar(car1);
+        supercar.loadCar(car2);
+        supercar.unloadCar();
+        Assert.assertTrue(supercar.carStack.contains(car1));
+    }
+
     @Test(expected = RuntimeException.class)
     public void gas() {
         supercar.openRamp();

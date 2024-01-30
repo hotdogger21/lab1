@@ -47,4 +47,12 @@ public class workshopTest {
         Assert.assertTrue(shop1.carlist.isEmpty());
     }
 
+    /*
+    @Test
+    public void addCar2(){
+        shop2.addCar(car2);
+    }
+
+     */
+
 }
