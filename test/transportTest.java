@@ -75,7 +75,5 @@ public class transportTest {
         supercar.closeRamp();
         supercar.gas(1);
         supercar.move();
-
-
     }
 }
