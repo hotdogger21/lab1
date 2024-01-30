@@ -2,7 +2,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 public class ScaniaTest {
 
@@ -15,10 +14,10 @@ public class ScaniaTest {
 
     @Test
     public void raisePlatformTest() {
-        car.openRamp();
-        car.openRamp();
+        for (int i = 0; i < 100; i++) {
+            car.openRamp();
+        }
         Assert.assertFalse(car.platformangle > 70);
-
     }
 
     @Test
@@ -27,7 +26,6 @@ public class ScaniaTest {
         car.closeRamp();
         car.closeRamp();
         Assert.assertFalse(car.platformangle < 0);
-
     }
 
     //testa gas med platform nere/öppen

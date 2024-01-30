@@ -8,14 +8,11 @@ public class transportTest {
     Saab95 car1;
     Volvo240 car2;
 
-    workshop<Volvo240> test1;
-
     @Before
     public void init(){
         supercar = new transport();
         car1 = new Saab95();
         car2 = new Volvo240();
-        test1 = new workshop<>();
     }
 
     @Test
