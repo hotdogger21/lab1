@@ -8,31 +8,28 @@ public class transport extends Truck{
     Deque<Car> carStack;
 
     public transport(){
-        super(2, 90, Color.green, "car transporter", true);
+        super(2, 90, Color.green, "car transporter");
         carStack = new ArrayDeque<>();
-        rampOpen = false;
+        platform.raisePlatform(); // close ramp
     }
 
     public void openRamp(){
-        if (currentSpeed > 0){
-            throw new RuntimeException("transporter must be still before lowering ramp");
-        }
-        else this.rampOpen = true;
+        platform.raisePlatform();
     }
 
     public void closeRamp(){
-        this.rampOpen = false;
+        platform.lowerPlatform();
     }
 
     public void loadCar(Car a){
-        if (rampOpen && a.position.distance(this.position) <= 5){
+        if (platform.getRampOpen() && a.position.distance(this.position) <= 5){
             carStack.push(a);
             a.position = this.position;
         }
     }
 
     public Car unloadCar(){
-        if (!rampOpen || carStack.isEmpty()){
+        if (!platform.getRampOpen() || carStack.isEmpty()){
             throw new RuntimeException("transport is either empty or ramp is closed!!!");
         }
         Car car = carStack.pop();

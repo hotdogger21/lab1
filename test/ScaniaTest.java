@@ -18,7 +18,7 @@ public class ScaniaTest {
         for (int i = 0; i < 100; i++) {
             car.openRamp();
         }
-        Assert.assertFalse(car.platformangle > 70);
+        Assert.assertFalse(car.platform.getPlatformangle() > 70);
     }
 
     @Test
@@ -26,7 +26,7 @@ public class ScaniaTest {
         car.openRamp();
         car.closeRamp();
         car.closeRamp();
-        Assert.assertFalse(car.platformangle < 0);
+        Assert.assertFalse(car.platform.getPlatformangle() < 0);
     }
 
     //testa gas med platform nere/öppen

@@ -18,14 +18,14 @@ public class transportTest {
     @Test
     public void openRamp() {
         supercar.openRamp();
-        Assert.assertTrue(supercar.rampOpen);
+        Assert.assertTrue(supercar.platform.rampOpen);
     }
 
     @Test
     public void closeRamp() {
         supercar.openRamp();
         supercar.closeRamp();
-        Assert.assertFalse(supercar.rampOpen);
+        Assert.assertFalse(supercar.platform.rampOpen);
     }
 
     @Test

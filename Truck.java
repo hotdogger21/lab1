@@ -4,12 +4,15 @@ abstract class Truck extends Car{
 
     private final boolean hasRamp;
 
-    protected Boolean rampOpen;
 
-    public Truck(int nrDoor, double enginePower, Color color, String modelName, boolean hasRamp){
+
+    protected Platform platform = null;
+
+    public Truck(int nrDoor, double enginePower, Color color, String modelName){
         super(nrDoor, enginePower, color, modelName);
-        this.hasRamp = hasRamp;
-        this.rampOpen = false;
+        this.hasRamp = true; // assume all trucks got platforms atm.
+        this.platform = new Platform(this);
+        platform.rampOpen = false;
     }
 
     @Override
@@ -17,7 +20,7 @@ abstract class Truck extends Car{
         if (amount < 0){
             throw new RuntimeException("no negative amounts!!!");
         }
-        else if (rampOpen && hasRamp) {
+        else if (hasRamp && platform.rampOpen) {
             throw new RuntimeException("no driving when the platform is raised!");
         }
         else {
