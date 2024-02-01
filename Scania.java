@@ -12,20 +12,15 @@ public class Scania extends Truck{
     }
 
     public void openRamp(){
-        if (currentSpeed > 0){
-            throw new RuntimeException("truck must be still before raising platform!");
-        }
-        else {
-            rampOpen = true;
-            platformangle = Math.min(70, platformangle + 1);
-        }
+        ramp.openRamp();
+        platformangle = Math.min(70, platformangle + 1);
     }
 
     public void closeRamp(){
         if (platformangle > 0){
             platformangle = Math.max(0, platformangle - 1);
             if (platformangle == 0){
-                rampOpen = false;
+                ramp.closeRamp();
             }
         }
     }

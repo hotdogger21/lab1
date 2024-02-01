@@ -35,4 +35,10 @@ public class ScaniaTest {
         car.openRamp();
         car.gas(1);
     }
+
+    @Test (expected = RuntimeException.class)
+    public void gas2() {
+        car.gas(1);
+        car.openRamp();
+    }
 }
